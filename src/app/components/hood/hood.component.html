@@ -1,0 +1,10 @@
+<p>hood works!</p>
+<button (click)="findHood()">Click me</button>
+
+<div *ngIf="hood.length>0">
+<ul *ngFor="let hood of hood">
+  <li>name:{{hood.name}}</li>
+  <li>hood desc: {{hood.hood_desc}}</li>
+  <li>location: {{hood.location}}</li>
+</ul>
+</div>

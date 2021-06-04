@@ -1,3 +1,4 @@
+import { HoodComponent } from './components/hood/hood.component';
 import { Component } from '@angular/core';
 
 @Component({
