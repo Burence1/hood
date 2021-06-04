@@ -1,3 +1,5 @@
+import { BusinessService } from './../../services/business.service';
+import { Business } from './../../interfaces/business';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,14 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusinessComponent implements OnInit {
 
-  url ='http://127.0.0.1:8000/api/business/'
+  business:Business[]=[];
+  constructor(private http:HttpClient,private businessservice:BusinessService) { }
 
-  constructor(private http:HttpClient) { }
+  findBusiness() {
+    this.businessservice.fetchBusiness().subscribe(
+      (res) => {
+        this.business = res
 
-  fetchBusinessApi(){
-    return this.http.get(this.url)
+      }, error => {
+        console.error(error)
+      }
+    );
   }
-
   ngOnInit(): void {
   }
 

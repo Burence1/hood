@@ -1,2 +1,11 @@
 <p>business works!</p>
-<button>Click</button>
+<button (click)="findBusiness()">Click</button>
+
+<div *ngIf="business.length>0">
+  <ul *ngFor="let business of business">
+    <li>business name:{{business.business_name}}</li>
+    <li>business desc: {{business.business_desc}}</li>
+    <li>profile: {{business.profile}}</li>
+    <li>hood: {{business.neighborhood}}</li>
+  </ul>
+</div>
