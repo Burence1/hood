@@ -16,3 +16,12 @@
 
   <button type="submit">Add Hood</button>
 </form>
+<p>updatehood</p>
+<form #updatehood="ngForm" (ngSubmit)="updateHood(updatehood.value.id,updatehood.value)" method="POST">
+  <input type="number" name="id" ngModel placeholder="id"><br>
+  <input type="text" name="name" ngModel placeholder="hood name"><br>
+  <input type="text" name="hood_desc" ngModel placeholder="hood description"><br>
+  <input type="text" name="location" ngModel placeholder="location"><br>
+
+  <button type="submit">update hood</button>
+</form>

@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class HoodServiceService {
 
   url = 'http://127.0.0.1:8000/api/hood/'
+  update_url ='http://127.0.0.1:8000/api/update/hood/'
 
   constructor(private http:HttpClient) {
 
@@ -20,5 +21,9 @@ export class HoodServiceService {
    }
   create(hood: any) {
     return this.http.post(this.url, hood);
+  }
+
+  update(id: any, hood: Hood) {
+    return this.http.put(`${this.update_url}${id}/`, hood);
   }
 }

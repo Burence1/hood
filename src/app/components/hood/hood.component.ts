@@ -32,6 +32,12 @@ export class HoodComponent implements OnInit {
     })
     console.warn(hood)
   }
+  updateHood(id: any, hood: Hood) {
+    this.hoodservice.update(id, hood).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(id)
+  }
 
   ngOnInit(): void {
   }

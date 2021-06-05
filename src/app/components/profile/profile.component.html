@@ -11,7 +11,7 @@
   </ul>
 </div>
 
-<form #updateProfile="ngForm" (ngSubmit)="onSubmit(updateProfile.value.id,updateProfile.value)" method="POST">
+<form #updateProfile="ngForm" (ngSubmit)="updateProf(updateProfile.value.id,updateProfile.value)" method="POST">
   <input type="number" name="id" ngModel placeholder="id"><br>
   <input type="text" name="name" ngModel placeholder="name"><br>
   <input type="file" name="profile_pic" ngModel><br>
