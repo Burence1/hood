@@ -24,7 +24,12 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
+  onSubmit(id: any,profile:Profile) {
+    this.profileservice.update(id,profile).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(id)
+  }
   ngOnInit(): void {
   }
 

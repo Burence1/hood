@@ -10,10 +10,14 @@ import { Injectable } from '@angular/core';
 export class ProfileService {
 
   url ='http://127.0.0.1:8000/api/profile/'
+  update_url ='http://127.0.0.1:8000/api/update/profile/'
   constructor(private http:HttpClient) { }
 
   fetchProfileApi(): Observable<Profile[]> {
     return this.http.get<Profile[]>(this.url);
 
+  }
+  update(id: any,profile:Profile) {
+    return this.http.put(`${this.update_url}${id}/`, profile);
   }
 }
