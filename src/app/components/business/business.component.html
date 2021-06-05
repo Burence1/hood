@@ -9,3 +9,13 @@
     <li>hood: {{business.neighborhood}}</li>
   </ul>
 </div>
+
+<form #businessPost="ngForm" (ngSubmit)="onSubmit(businessPost.value)" method="POST">
+  <input type="text" name="business_name" ngModel placeholder="business name"><br>
+  <input type="text" name="business_desc" ngModel placeholder="description"><br>
+  <input type="text" name="profile" ngModel placeholder="profile num"><br>
+  <input type="text" name="neighborhood" ngModel placeholder="hood num"><br>
+  <input type="email" name="business_email" ngModel placeholder="business_email"><br>
+
+  <button type="submit">Add business</button>
+</form>

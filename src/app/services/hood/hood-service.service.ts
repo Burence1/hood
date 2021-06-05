@@ -18,4 +18,7 @@ export class HoodServiceService {
      return this.http.get<Hood[]>(this.url);
 
    }
+  create(hood: any) {
+    return this.http.post(this.url, hood);
+  }
 }

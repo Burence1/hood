@@ -8,3 +8,11 @@
   <li>location: {{hood.location}}</li>
 </ul>
 </div>
+
+<form #hoodPost="ngForm" (ngSubmit)="onSubmit(hoodPost.value)" method="POST">
+  <input type="text" name="name" ngModel placeholder="hood name"><br>
+  <input type="text" name="hood_desc" ngModel placeholder="hood description"><br>
+  <input type="text" name="location" ngModel placeholder="location"><br>
+
+  <button type="submit">Add Hood</button>
+</form>

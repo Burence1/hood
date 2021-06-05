@@ -4,15 +4,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessService {
   url ='http://127.0.0.1:8000/api/business/'
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    
+   }
 
   fetchBusiness():Observable<Business[]>{
     return this.http.get<Business[]>(this.url);
+  }
+
+  create(business:any) {
+    return this.http.post(this.url, business);
   }
 }

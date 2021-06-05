@@ -26,6 +26,12 @@ export class HoodComponent implements OnInit {
      }
      );
    }
+  onSubmit(hood: any) {
+    this.hoodservice.create(hood).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(hood)
+  }
 
   ngOnInit(): void {
   }

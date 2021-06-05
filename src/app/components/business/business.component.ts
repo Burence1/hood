@@ -24,7 +24,12 @@ export class BusinessComponent implements OnInit {
       }
     );
   }
+  onSubmit(business:any){
+    this.businessservice.create(business).subscribe((result)=>{
+      console.warn("result",result)
+    })
+    console.warn(business)
+  }
   ngOnInit(): void {
   }
-
 }
