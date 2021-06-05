@@ -30,6 +30,12 @@ export class BusinessComponent implements OnInit {
     })
     console.warn(business)
   }
+  updateBusiness(id: any, business:Business) {
+    this.businessservice.update(id, business).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(id)
+  }
   ngOnInit(): void {
   }
 }

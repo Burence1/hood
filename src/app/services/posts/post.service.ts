@@ -13,6 +13,7 @@ export class PostService {
     throw new Error('Method not implemented.');
   }
   url ='http://127.0.0.1:8000/api/post/'
+  update_url = 'http://127.0.0.1:8000/api/update/post/'
   constructor(private http:HttpClient) {
     
    }
@@ -22,5 +23,8 @@ export class PostService {
   }
   create(posts: any) {
     return this.http.post(this.url, posts);
+  }
+  update(id: any, posts: Posts) {
+    return this.http.put(`${this.update_url}${id}/`, posts);
   }
 }

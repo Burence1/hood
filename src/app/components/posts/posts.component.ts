@@ -31,6 +31,12 @@ export class PostsComponent implements OnInit {
     })
     console.warn(posts)
   }
+  updatePosts(id: any, posts: Posts) {
+    this.postservice.update(id, posts).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(id)
+  }
   ngOnInit(): void {
   }
 

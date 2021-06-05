@@ -10,7 +10,7 @@
     <li>hood:{{profile.neighborhood}}</li>
   </ul>
 </div>
-
+<p>Update profile</p>
 <form #updateProfile="ngForm" (ngSubmit)="updateProf(updateProfile.value.id,updateProfile.value)" method="POST">
   <input type="number" name="id" ngModel placeholder="id"><br>
   <input type="text" name="name" ngModel placeholder="name"><br>
