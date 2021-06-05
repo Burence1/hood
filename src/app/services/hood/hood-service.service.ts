@@ -1,4 +1,4 @@
-import { Hood } from './../interfaces/hood';
+import { Hood } from '../../interfaces/hood';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

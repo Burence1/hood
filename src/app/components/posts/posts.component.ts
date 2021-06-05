@@ -1,5 +1,5 @@
 import { Posts } from './../../interfaces/posts';
-import { PostService } from './../../services/post.service';
+import { PostService } from '../../services/posts/post.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 

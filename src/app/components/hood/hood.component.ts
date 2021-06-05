@@ -1,5 +1,5 @@
 import { Hood } from './../../interfaces/hood';
-import { HoodServiceService } from './../../services/hood-service.service';
+import { HoodServiceService } from '../../services/hood/hood-service.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { error } from 'selenium-webdriver';
