@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HoodComponent } from './components/hood/hood.component';
 import { BusinessComponent } from './components/business/business.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HoodComponent,
     BusinessComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
