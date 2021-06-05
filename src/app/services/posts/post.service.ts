@@ -20,4 +20,7 @@ export class PostService {
     return this.http.get<Posts[]>(this.url);
 
   }
+  create(posts: any) {
+    return this.http.post(this.url, posts);
+  }
 }

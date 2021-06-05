@@ -5,8 +5,18 @@
   <ul *ngFor="let post of posts">
     <li>post name:{{post.post_name}}</li>
     <li>post content: {{post.post_content}}</li>
-    <li>pub date: {{post.pub_date}}</li>
+    <!-- <li>pub date: {{post.pub_date}}</li> -->
     <li>profile: {{post.profile}}</li>
     <li>hood: {{post.hood}}</li>
   </ul>
 </div>
+
+<form #postsPost="ngForm" (ngSubmit)="onSubmit(postsPost.value)" method="POST">
+  <input type="text" name="post_name" ngModel placeholder="post name"><br>
+  <input type="text" name="post_content" ngModel placeholder="post_content"><br>
+  <!-- <input type="text" name="pub_date" ngModel placeholder="pub_date"><br> -->
+  <input type="text" name="profile" ngModel placeholder="profile"><br>
+  <input type="text" name="hood" ngModel placeholder="hood"><br>
+
+  <button type="submit">Add Posts</button>
+</form>

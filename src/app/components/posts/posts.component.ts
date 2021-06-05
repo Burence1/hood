@@ -23,8 +23,14 @@ export class PostsComponent implements OnInit {
         console.error(error)
       }
     );
+    
   }
-
+  onSubmit(posts: any) {
+    this.postservice.create(posts).subscribe((result) => {
+      console.warn("result", result)
+    })
+    console.warn(posts)
+  }
   ngOnInit(): void {
   }
 
