@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   profile:Profile[]=[];
+  profiles:Profile;
 
   constructor(private profileservice:ProfileService) { }
 
@@ -24,6 +25,8 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+
+
   updateProf(id: any,profile:Profile) {
     this.profileservice.update(id,profile).subscribe((result) => {
       console.warn("result", result)

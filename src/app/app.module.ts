@@ -12,6 +12,8 @@ import { HoodComponent } from './components/hood/hood.component';
 import { BusinessComponent } from './components/business/business.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -22,6 +24,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BusinessComponent,
     PostsComponent,
     ProfileComponent,
+    NavbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
