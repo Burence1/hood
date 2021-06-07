@@ -1,97 +1,42 @@
-<!-- <p>business works!</p>
-<button (click)="findBusiness()">Business</button>
-
-<div *ngIf="business.length>0">
-  <ul *ngFor="let business of business">
-    <li>business name:{{business.business_name}}</li>
-    <li>business desc: {{business.business_desc}}</li>
-    <li>profile: {{business.profile}}</li>
-    <li>hood: {{business.neighborhood}}</li>
-  </ul>
-</div>
-
-<div class="container shadow p-3 mb-5 bg-white rounded form-card">
-  <p>Add Business</p>
-  <div class="card card-title ">
-    <div class="card-body">
-      <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value);businessForm.reset()" method="POST">
-        <input type="text" class="form-control" formControlName="business_name" ngModel placeholder="business name"><br>
-        <input type="text" class="form-control" formControlName="business_desc" ngModel placeholder="description"><br>
-        <input type="text" class="form-control" formControlName="profile" ngModel placeholder="profile num"><br>
-        <input type="text" class="form-control" formControlName="neighborhood" ngModel placeholder="hood num"><br>
-        <input type="email" class="form-control" formControlName="business_email" ngModel
-          placeholder="business_email"><br>
-
-        <button class="btn btn-sm btn-info mt-4" type="submit">Add business</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="container shadow p-3 mb-5 bg-white rounded form-card">
-  <p>Update Business</p>
-  <div class="card card-title ">
-    <div class="card-body">
-      <form [formGroup]="updateForm"
-        (ngSubmit)="updateBusiness(updateForm.value.id,updateForm.value);updateForm.reset()" method="POST">
-        <input type="number" class="form-control" formControlName="id" ngModel placeholder="id"><br>
-        <input type="text" class="form-control" formControlName="business_name" ngModel placeholder="business name"><br>
-        <input type="text" class="form-control" formControlName="business_desc" ngModel placeholder="description"><br>
-        <input type="text" class="form-control" formControlName="profile" ngModel placeholder="profile num"><br>
-        <input type="text" class="form-control" formControlName="neighborhood" ngModel placeholder="hood num"><br>
-        <input type="email" class="form-control" formControlName="business_email" ngModel
-          placeholder="business_email"><br>
-
-        <button class="btn btn-sm btn-info mt-4" type="submit">update business</button>
-      </form>
-    </div>
-  </div>
-</div> -->
-
-<div class="list row">
-  <div class="col-md-8">
-
-  </div>
-  <div class="col-md-6">
-    <h4>Business List</h4>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let business of business; let i = index" [class.active]="i == currentIndex"
-        (click)="setActiveBusiness(business, i)">
-        Name:{{ business.business_name }} Desc: {{ business.business_desc }} email: {{ business.business_email}} profile:{{business.profile}} neighborhood:{{business.neighborhood}}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentBusiness">
-      <h4>Hood</h4>
-      <div class="container shadow p-3 mb-5 bg-white rounded form-card">
-        <div class="card card-title ">
-          <div class="card-body">
-            <div>
-              <label><strong>Business name:</strong></label> {{ currentBusiness.business_name }}
-            </div>
-            <div>
-              <label><strong>Description:</strong></label> {{ currentBusiness.business_desc }}
-            </div>
-            <div>
-              <label><strong>email:</strong></label> {{ currentBusiness.business_email }}
-            </div>
-            <div>
-              <label><strong>profile:</strong></label> {{ currentBusiness.profile }}
-            </div>
-            <div>
-              <label><strong>neighborhood:</strong></label> {{ currentBusiness.neighborhood }}
-            </div>
-            <button class="btn btn-info" routerLink="/business/{{ currentBusiness.id }}">
-              Edit Business
-            </button>
-          </div>
-        </div>
+<div class="row">
+  <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+    <p class="text-center">Add Business</p>
+    <div class="card card-title ">
+      <div class="card-body">
+        <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value);businessForm.reset()" method="POST">
+          <input type="text" class="form-control" formControlName="business_name" ngModel placeholder="business name"><br>
+          <input type="text" class="form-control" formControlName="business_desc" ngModel placeholder="description"><br>
+          <input type="text" class="form-control" formControlName="profile" ngModel placeholder="profile num"><br>
+          <input type="text" class="form-control" formControlName="neighborhood" ngModel placeholder="hood num"><br>
+          <input type="email" class="form-control" formControlName="business_email" ngModel
+            placeholder="business_email"><br>
+  
+          <button class="btn btn-sm btn-info mt-4" type="submit">Add business</button>
+        </form>
       </div>
     </div>
-    <div *ngIf="!currentBusiness">
-      <br />
-      <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<div class="list row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h4 class="text-center mt-4">Business List</h4>
+    <div *ngFor="let business of business; let i = index" [class.active]="i == currentIndex"
+      (click)="setActiveBusiness(business, i)">
+      <div class="container shadow p-3 mb-5 bg-white rounded form-card" routerLink="/business/{{ business.id }}">
+        <div class="card card-title ">
+          <div class="card-body">
+            <h6><strong>Name:{{ business.business_name }}</strong></h6>
+            <h6><strong>Description: {{ business.business_desc }}</strong></h6>
+            <h6><strong>Email: {{ business.business_email}}</strong></h6>
+            <h6><strong>Profile:{{business.profile}}</strong></h6>
+            <h6><strong>Neighborhood:{{business.neighborhood}}</strong></h6>
+          </div>
+        </div>
+        <button class="btn btn-secondary"> update</button>
+      </div>
     </div>
   </div>
+  <div class="col-md-3"></div>
 </div>

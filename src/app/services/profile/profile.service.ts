@@ -9,8 +9,8 @@ import { Injectable } from '@angular/core';
 })
 export class ProfileService {
 
-  url ='http://127.0.0.1:8000/api/profile/'
-  update_url ='http://127.0.0.1:8000/api/update/profile/'
+  url ='https://burence-neighbor.herokuapp.com/api/profile/'
+  update_url ='https://burence-neighbor.herokuapp.com/api/update/profile/'
   constructor(private http:HttpClient) { }
 
   fetchProfileApi(): Observable<Profile[]> {

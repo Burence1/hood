@@ -1,15 +1,26 @@
-<p>profile works!</p>
-<button (click)="findProfiles()">profile</button>
-
 <div *ngIf="profile.length>0">
-  <ul *ngFor="let profile of profile">
-    <li>name:{{profile.name}}</li>
-    <li>profile_pic:{{profile.profile_pic}}</li>
-    <li>email:{{profile.email}}</li>
-    <li>user:{{profile.user}}</li>
-    <li>hood:{{profile.neighborhood}}</li>
-    <img src="http://res.cloudinary.com/burens/{{profile.profile_pic}}" class="rounded-circle" style="height: 4em;width: 4em;" alt="...">
-  </ul>
+  <div *ngFor="let profile of profile">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+        <div class="card card-title ">
+          <div class="card-body">
+            <div class="col-md-5">
+              <img src="http://res.cloudinary.com/burens/{{profile.profile_pic}}" class="rounded-circle"
+                style="height: 6em;width: 6em;" alt="...">
+            </div>
+            <div class="col-md-7">
+              <h6>name:{{profile.name}}</h6>
+              <h6>email:{{profile.email}}</h6>
+              <h6>user:{{profile.user}}</h6>
+              <h6>hood:{{profile.neighborhood}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
 </div>
 <p>Update profile</p>
 <form #updateProfile="ngForm" (ngSubmit)="updateProf(updateProfile.value.id,updateProfile.value)" method="POST">

@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
   input: any;
 
-  url ='http://localhost:8000/loginuser/'
+  url ='https://burence-neighbor.herokuapp.com/loginuser/'
   constructor(private http:HttpClient) { }
 
   loginUser(input: any): Observable<any> {

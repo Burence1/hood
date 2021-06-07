@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class HoodServiceService {
 
-  url = 'http://127.0.0.1:8000/api/hood/'
-  update_url ='http://127.0.0.1:8000/api/update/hood/'
-  single_url ='http://127.0.0.1:8000/api/single-hood/'
+  url = 'https://burence-neighbor.herokuapp.com/api/hood/'
+  update_url ='https://burence-neighbor.herokuapp.com/api/update/hood/'
+  single_url ='https://burence-neighbor.herokuapp.com/api/single-hood/'
 
   constructor(private http:HttpClient) {
 

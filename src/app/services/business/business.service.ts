@@ -9,9 +9,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BusinessService {
-  url ='http://127.0.0.1:8000/api/business/'
-  update_url ='http://127.0.0.1:8000/api/update/business/'
-  single_url ='http://127.0.0.1:8000/api/single-business/'
+  url ='https://burence-neighbor.herokuapp.com/api/business/'
+  update_url ='https://burence-neighbor.herokuapp.com/api/update/business/'
+  single_url ='https://burence-neighbor.herokuapp.com/api/single-business/'
   constructor(private http:HttpClient) {
     
    }

@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateHoodComponent implements OnInit {
   currentHood: Hood = {
     name: '',
+    image:'',
     hood_desc: '',
     location: '',
   };
@@ -38,6 +39,7 @@ export class UpdateHoodComponent implements OnInit {
   }
   updatePublished(status: boolean): void {
     const data = {
+      image:this.currentHood.image,
       name: this.currentHood.name,
       description: this.currentHood.hood_desc,
       location: this.currentHood.location,

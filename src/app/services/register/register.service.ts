@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterService {
   userData: any;
-  url = 'http://127.0.0.1:8000/api/users/'
+  url = 'https://burence-neighbor.herokuapp.com/api/users/'
 
   constructor(private http:HttpClient) { }
 

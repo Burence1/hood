@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostService {
-  url ='http://127.0.0.1:8000/api/post/'
-  update_url = 'http://127.0.0.1:8000/api/update/post/'
-  single_url ='http://127.0.0.1:8000/api/single-post/'
+  url ='https://burence-neighbor.herokuapp.com/api/post/'
+  update_url = 'https://burence-neighbor.herokuapp.com/api/update/post/'
+  single_url ='https://burence-neighbor.herokuapp.com/api/single-post/'
   constructor(private http:HttpClient) {
     
    }
