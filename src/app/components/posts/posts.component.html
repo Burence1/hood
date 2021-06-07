@@ -1,5 +1,4 @@
-<p>posts works!</p>
-<button (click)="findPosts()">Posts</button>
+<!-- <button (click)="findPosts()">Posts</button>
 
 <div *ngIf="posts.length>0">
   <ul *ngFor="let post of posts">
@@ -11,22 +10,81 @@
   </ul>
 </div>
 
-<form #postsPost="ngForm" (ngSubmit)="onSubmit(postsPost.value)" method="POST">
-  <input type="text" name="post_name" ngModel placeholder="post name"><br>
-  <input type="text" name="post_content" ngModel placeholder="post_content"><br>
-  <input type="text" name="profile" ngModel placeholder="profile"><br>
-  <input type="text" name="hood" ngModel placeholder="hood"><br>
+<div class="container shadow p-3 mb-5 bg-white rounded form-card">
+  <p>Add post</p>
+  <div class="card card-title ">
+    <div class="card-body">
+      <form [formGroup]="postsForm" (ngSubmit)="onSubmit(postsForm.value);postsForm.reset()" method="POST">
+        <input type="text" class="form-control" formControlName="post_name" ngModel placeholder="post name"><br>
+        <input type="text" class="form-control" formControlName="post_content" ngModel placeholder="post_content"><br>
+        <input type="text" class="form-control" formControlName="profile" ngModel placeholder="profile"><br>
+        <input type="text" class="form-control" formControlName="hood" ngModel placeholder="hood"><br>
 
-  <button type="submit">Add Posts</button>
-</form>
+        <button class="btn btn-sm btn-info mt-4" type="submit">Add Posts</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-<p>Update Post</p>
-<form #updateposts="ngForm" (ngSubmit)="updatePosts(updateposts.value.id,updateposts.value)" method="POST">
-  <input type="number" name="id" ngModel placeholder="id"><br>
-  <input type="text" name="post_name" ngModel placeholder="post name"><br>
-  <input type="text" name="post_content" ngModel placeholder="post_content"><br>
-  <input type="text" name="profile" ngModel placeholder="profile"><br>
-  <input type="text" name="hood" ngModel placeholder="hood"><br>
+<div class="container shadow p-3 mb-5 bg-white rounded form-card">
+  <p>update post</p>
+  <div class="card card-title ">
+    <div class="card-body">
+      <form [formGroup]="updateForm" (ngSubmit)="updatePosts(updateForm.value.id,updateForm.value);updateForm.reset()"
+        method="POST">
+        <input type="number" class="form-control" formControlName="id" ngModel placeholder="id"><br>
+        <input type="text" class="form-control" formControlName="post_name" ngModel placeholder="post name"><br>
+        <input type="text" class="form-control" formControlName="post_content" ngModel placeholder="post_content"><br>
+        <input type="number" class="form-control" formControlName="profile" ngModel placeholder="profile"><br>
+        <input type="number" class="form-control" formControlName="hood" ngModel placeholder="hood"><br>
 
-  <button type="submit">update post</button>
-</form>
+        <button class="btn btn-sm btn-info mt-4" type="submit">update post</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div class="list row">
+  <div class="col-md-8">
+
+  </div>
+  <div class="col-md-6">
+    <h4>Posts List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let posts of posts; let i = index" [class.active]="i == currentIndex"
+        (click)="setActivePosts(posts, i)">
+        Name:{{ posts.post_name }} content: {{ posts.post_content }} pub_date: {{ posts.pub_date }} profile:{{posts.profile}} hood:{{posts.hood}}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentPosts">
+      <h4>Post</h4>
+      <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+        <div class="card card-title ">
+          <div class="card-body">
+            <div>
+              <label><strong>Post name:</strong></label> {{ currentPosts.post_name }}
+            </div>
+            <div>
+              <label><strong>content:</strong></label> {{ currentPosts.post_content }}
+            </div>
+            <div>
+              <label><strong>profile:</strong></label> {{ currentPosts.profile }}
+            </div>
+            <div>
+              <label><strong>hood:</strong></label> {{ currentPosts.hood }}
+            </div>
+            <button class="btn btn-info" routerLink="/posts/{{ currentPosts.id }}">
+              Edit profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!currentPosts">
+      <br />
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div>
+</div>

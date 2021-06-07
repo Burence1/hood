@@ -20,4 +20,5 @@ export class ProfileService {
   update(id: any,profile:Profile) {
     return this.http.put(`${this.update_url}${id}/`, profile);
   }
+
 }

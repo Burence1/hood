@@ -1,27 +1,116 @@
-<p>hood works!</p>
-<button (click)="findHood()">Hood</button>
-
-<div *ngIf="hood.length>0">
-<ul *ngFor="let hood of hood">
-  <li>name:{{hood.name}}</li>
-  <li>hood desc: {{hood.hood_desc}}</li>
-  <li>location: {{hood.location}}</li>
-</ul>
+<!-- <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+  <p>Add hood</p>
+  <div class="card card-title ">
+    <div class="card-body">
+      <form [formGroup]="hoodForm" (ngSubmit)="onSubmit(hoodForm.value);hoodForm.reset()" method="POST">
+        <input type="text" class="form-control" ngModel placeholder="hood name" formControlName="name"><br>
+        <input type="text" class="form-control" formControlName="hood_desc" ngModel placeholder="hood description"><br>
+        <input type="text" class="form-control" formControlName="location" ngModel placeholder="location"><br>
+        <button class="btn btn-sm btn-info mt-4" type="submit">Add Hood</button>
+      </form>
+    </div>
+  </div>
 </div>
 
-<form #hoodPost="ngForm" (ngSubmit)="onSubmit(hoodPost.value)" method="POST">
-  <input type="text" name="name" ngModel placeholder="hood name"><br>
-  <input type="text" name="hood_desc" ngModel placeholder="hood description"><br>
-  <input type="text" name="location" ngModel placeholder="location"><br>
+<div class="container shadow p-3 mb-5 bg-white rounded form-card">
+  <div class="card card-title ">
+    <div class="card-body">
+      <p>updatehood</p>
+      <form [formGroup]="updateForm" (ngSubmit)="updateHood(updateForm.value.id,updateForm.value);updateForm.reset()"
+        method="POST">
+        <input type="number" class="form-control" formControlName="id" ngModel placeholder="id"><br>
+        <input type="text" class="form-control" formControlName="name" ngModel placeholder="hood name"><br>
+        <input type="text" class="form-control" formControlName="hood_desc" ngModel placeholder="hood description"><br>
+        <input type="text" class="form-control" formControlName="location" ngModel placeholder="location"><br>
+        <button class="btn btn-sm btn-info mt-4" type="submit">update hood</button>
+      </form>
+    </div>
+  </div>
+</div>
 
-  <button type="submit">Add Hood</button>
-</form>
-<p>updatehood</p>
-<form #updatehood="ngForm" (ngSubmit)="updateHood(updatehood.value.id,updatehood.value)" method="POST">
-  <input type="number" name="id" ngModel placeholder="id"><br>
-  <input type="text" name="name" ngModel placeholder="hood name"><br>
-  <input type="text" name="hood_desc" ngModel placeholder="hood description"><br>
-  <input type="text" name="location" ngModel placeholder="location"><br>
+<button (click)="findHood()" id="business" class="btn btn-sm btn-info mt-4">Checkout Hoods</button>
 
-  <button type="submit">update hood</button>
-</form>
+<div *ngIf="hood.length>0">
+  <ul *ngFor="let hood of hood; let i = index" [class.active]="i == currentIndex" (click)="setActiveHood(hood, i)">
+    <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+      <div class="card card-title ">
+        <div class="card-body">
+          <li>name:{{hood.name}}</li>
+          <li>hood desc: {{hood.hood_desc}}</li>
+          <li>location: {{hood.location}}</li>
+        </div>
+
+        <div>
+          <a routerLink="/business">Checkout hood businesses</a>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+
+<div class="col-md-6">
+  <div *ngIf="currentHood">
+    <h4>Hood</h4>
+    <div>
+      <label><strong>Hood name:</strong></label> {{ currentHood.name }}
+    </div>
+    <div>
+      <label><strong>Description:</strong></label> {{ currentHood.hood_desc }}
+    </div>
+    <div>
+      <label><strong>location:</strong></label> {{ currentHood.location }}
+    </div>
+    <a class="badge badge-warning" routerLink="/hood/{{ currentHood.id }}">
+      Edit Hood
+    </a>
+
+  </div>
+
+  <div *ngIf="!currentHood">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+ -->
+
+<div class="list row">
+  <div class="col-md-8">
+
+  </div>
+  <div class="col-md-6">
+    <h4>Hoods List</h4>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let hood of hood; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveHood(hood, i)">
+        Name:{{ hood.name }} Desc: {{ hood.hood_desc }} location: {{ hood.location }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentHood">
+      <h4>Hood</h4>
+      <div class="container shadow p-3 mb-5 bg-white rounded form-card">
+        <div class="card card-title ">
+          <div class="card-body">
+      <div>
+        <label><strong>Hood name:</strong></label> {{ currentHood.name }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label> {{ currentHood.hood_desc }}
+      </div>
+      <div>
+        <label><strong>location:</strong></label> {{ currentHood.location }}
+      </div>
+      <button class="btn btn-info" routerLink="/hood/{{ currentHood.id }}">
+        Edit Hood
+      </button>
+      </div>
+      </div>
+      </div>
+    </div>
+    <div *ngIf="!currentHood">
+      <br />
+      <p>Please click on a Tutorial...</p>
+    </div>
+  </div>
+</div>

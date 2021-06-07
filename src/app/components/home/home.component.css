@@ -1,0 +1,29 @@
+.jumbotron{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./../../../assets/home.jpg);
+    height: 37em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-grad {background-image: linear-gradient(to right,  0%, #00CDAC  51%, #02AAB0  100%)}
+.btn-grad {
+margin: 10px;
+padding: 15px 45px;
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;            
+box-shadow: 0 0 20px #eee;
+border-radius: 10px;
+display: block;
+width: fit-content;
+}
+
+.btn-grad:hover {
+background-position: right center; /* change the direction of the change here */
+color: #fff;
+text-decoration: none;
+}

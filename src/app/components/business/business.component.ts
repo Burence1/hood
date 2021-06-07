@@ -2,6 +2,7 @@ import { BusinessService } from './../../services/business/business.service';
 import { Business } from './../../interfaces/business';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,8 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./business.component.css']
 })
 export class BusinessComponent implements OnInit {
+  businessForm = new FormGroup({
+    business_name: new FormControl(''),
+    business_desc: new FormControl(''),
+    profile: new FormControl(''),
+    neighborhood:new FormControl(''),
+    business_email: new FormControl(''),
+  });
+
+  updateForm = new FormGroup({
+    id:new FormControl(''),
+    business_name: new FormControl(''),
+    business_desc: new FormControl(''),
+    profile: new FormControl(''),
+    neighborhood: new FormControl(''),
+    business_email: new FormControl(''),
+  });
 
   business:Business[]=[];
+  currentIndex = -1;
+  currentBusiness?: Business;
   constructor(private http:HttpClient,private businessservice:BusinessService) { }
 
   findBusiness() {
@@ -37,5 +56,16 @@ export class BusinessComponent implements OnInit {
     console.warn(id)
   }
   ngOnInit(): void {
+    this.findBusiness();
+  }
+
+  refreshList(): void {
+    this.findBusiness();
+    this.currentBusiness = undefined;
+    this.currentIndex = -1;
+  }
+  setActiveBusiness(business: Business, index: number): void {
+    this.currentBusiness = business;
+    this.currentIndex = index;
   }
 }

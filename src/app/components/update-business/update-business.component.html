@@ -1,0 +1,54 @@
+<div>
+  <div *ngIf="currentBusiness.id" class="edit-form">
+    <h4>Business</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Name</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="currentBusiness.business_name" name="business_name" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="currentBusiness.business_desc"
+          name="business_desc" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="currentBusiness.business_email" name="business_email" />
+      </div>
+      <div class="form-group">
+        <label for="user">Profile</label>
+        <input type="text" class="form-control" id="user" [(ngModel)]="currentBusiness.profile" name="profile" />
+      </div>
+      <div class="form-group">
+        <label for="description">neighborhood</label>
+        <input type="text" class="form-control" id="neighborhood" [(ngModel)]="currentBusiness.neighborhood"
+          name="neighborhood" />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label> {{ currentBusiness.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <!-- <button class="badge badge-primary mr-2" *ngIf="currentBusiness.published" (click)="updatePublished(false)">
+      UnPublish
+    </button>
+    <button *ngIf="!currentBusiness.published" class="badge badge-primary mr-2" (click)="updatePublished(true)">
+      Publish
+    </button> -->
+
+    <button class="btn btn-danger" (click)="deleteBusiness()">
+      Delete
+    </button>
+
+    <button type="submit" class="btn btn-primary" (click)="updateBusiness()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentBusiness.id">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</div>
