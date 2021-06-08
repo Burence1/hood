@@ -12,7 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UpdateBusinessComponent } from './components/update-business/update-business.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'hoods', pathMatch: 'full' },
+  {path: '', redirectTo: 'register', pathMatch: 'full' },
   {path:'home',component:HomeComponent},
   {path:'hoods',component:HoodComponent},
   {path:'business',component:BusinessComponent},

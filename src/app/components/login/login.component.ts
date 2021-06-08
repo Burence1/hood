@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.input = {
       username: '',
-      email: '',
       password: '',
     }
   }
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log('error', error)
-        alert('Username or password is incorrect')
+        alert('incorrect credentials')
       }
     );
   }
